@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<div class="row align-items-center mt-4">
+
+    <div class="col-sm-6 d-none d-md-block align-items-center">
+
+        <div id="carouselExampleSlidesOnly" class="carousel carousel-fade slide" data-bs-ride="carousel">
+            <div class="carousel-inner text-center">
+                <div class="carousel-item active" data-bs-interval="2000">
+                    Free
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    Secure
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    Privacy
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 pt-3 border rounded">
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item col-6" role="presentation">
+                <a class="nav-link active" id="login-tab" data-bs-toggle="tab" href="#login" role="tab"
+                    aria-controls="home" aria-selected="true">Login</a>
+            </li>
+            <li class="nav-item col-6" role="presentation">
+                <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#register" role="tab"
+                    aria-controls="register" aria-selected="false">Register</a>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-4 p-3" id="login-register">
+            <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                <form>
+                    <div class="mb-3">
+                        <label for="loginInputEmail" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="loginInputEmail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginInputPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="loginInputPassword">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                <form>
+                    <div class="mb-3">
+                        <label for="registerInputEmail" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="registerInputEmail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="registerInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="registerInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="registerInputPassword2" class="form-label">Re-write Password</label>
+                        <input type="password" class="form-control" id="registerInputPassword2">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock main %}

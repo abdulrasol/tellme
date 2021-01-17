@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block main %}
+<!-- user card -->
+<div class="user">
+    <div class="card" style="background-color: #f8f1f1;">
+        <div class="header pt-3">
+            <p>Tell Me To Get Poruid!</p>
+        </div>
+        <div class="picture">
+            <img src="static/images/avatar.jpg" class="rounded mx-auto d-block" alt="..." />
+        </div>
+        <div class="card-body text-center">
+            <h5 class="card-title">AbdulRasol Al-Hilo</h5>
+            <p class="card-text">
+                Some quick example text to build on the card title and make up the
+                bulk of the card's content.
+            </p>
+            <!-- users posts -->
+            <div class="posts">
+                <div class="row gx-2 gy-2">
+                    <div class="card col-sm-6 col-md-4 col-lg-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">
+                                Some quick example text to build on the card title and
+                                make up the bulk of the card's content.
+                            </p>
+                            <div class="row">
+                                <div class="col">
+                                    <i class="bi-hand-thumbs-up" style="font-size: 1.2rem; color: #312c51">
+                                    </i>
+                                    <span class="badge bg-dark">4</span>
+                                </div>
+                                <div class="col">
+                                    <i class="bi-hand-thumbs-down" style="font-size: 1.2rem; color: #312c51">
+                                    </i>
+                                    <span class="badge bg-dark">2</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- fab btn -->
+<div class="fab" onclick="toggle_modal('profile')" data-bs-toggle="tooltip" data-bs-placement="top" title="New Post">
+    <span>
+        <i class="bi-gear-fill" style="font-size: 2rem; color: #f0c38e"></i>
+    </span>
+</div>
+
+{% endblock main %}

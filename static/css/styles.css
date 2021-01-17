@@ -1,0 +1,52 @@
+.navbar-mask {
+  min-height: 72px;
+}
+
+.card .header {
+  position: relative;
+  text-align: center;
+  border-bottom: 2px solid #48426d;
+  height: 140px;
+}
+
+.card .header p {
+  font-size: large;
+  font-style: italic;
+  font-family: fantasy;
+}
+
+.card .picture {
+  position: relative;
+  height: 40px;
+}
+
+.card .picture img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  position: relative;
+  top: -90px;
+}
+
+.card p.card-text {
+  border-bottom: 2px solid #48426d;
+  padding-bottom: 20px;
+}
+
+.fab {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+}
+
+.fab span {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: #11698e;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 1px 1px 6px #312c51;
+}
