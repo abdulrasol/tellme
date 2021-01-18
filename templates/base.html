@@ -33,7 +33,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/">Logout</a>
+            <a class="nav-link" href="/logout">Logout</a>
           </li>
 
           {% elif not home %}
@@ -80,6 +80,7 @@
   <!-- Modals -->
 
   <!-- New Post Modal -->
+
   <div class="modal fade" id="post" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -174,13 +175,13 @@
   </div>
 
 
-  {% else %}
+  {% elif profile %}
   <!-- Profile Eidt Modals -->
   <div class="modal fade" id="profile" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editProfileModal">Login</h5>
+          <h5 class="modal-title" id="editProfileModal">Update profile</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
