@@ -4,16 +4,28 @@
 <div class="user">
     <div class="card" style="background-color: #f8f1f1;">
         <div class="header pt-3">
-            <p>Tell Me To Get Poruid!</p>
+            <p>
+                {% if user.short != None %}
+                {{user.short}}
+                {% endif %}
+            </p>
         </div>
         <div class="picture">
-            <img src="static/images/avatar.jpg" class="rounded mx-auto d-block" alt="..." />
+            <img src="{% if user.picture %}{{user.picture}}{% else %}static/images/avatar.png{% endif %}"
+                class="rounded mx-auto d-block" alt="..." />
         </div>
         <div class="card-body text-center">
-            <h5 class="card-title">AbdulRasol Al-Hilo</h5>
+            <h5 class="card-title">
+                {% if user.name != None %}
+                {{user.name}}
+                {% else %}
+                {{ user.username }}
+                {% endif %}
+            </h5>
             <p class="card-text">
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
+                {% if user.bio != None %}
+                {{user.bio}}
+                {% endif %}
             </p>
             <!-- users posts -->
             <div class="posts">

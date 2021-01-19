@@ -35,33 +35,45 @@
 
         <div class="tab-content mt-4 p-3" id="login-register">
             <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-                <form>
+                <form action="/login" method="POST">
                     <div class="mb-3">
                         <label for="loginInputEmail" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="loginInputEmail">
+                        <input type="text" name="username" class="form-control" id="loginInputEmail">
                     </div>
+
                     <div class="mb-3">
                         <label for="loginInputPassword" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="loginInputPassword">
+                        <input type="password" name="password" class="form-control" id="loginInputPassword">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                    <button type="submit btn-danger" class="btn btn-primary">Login</button>
                 </form>
             </div>
             <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                <form>
+                <form method="POST" action="/register">
                     <div class="mb-3">
                         <label for="registerInputEmail" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="registerInputEmail">
+                        <input type="text" name="username" class="form-control" id="registerInputEmail" required>
                     </div>
+
+                    <div class="mb-3">
+                        <label for="registerInputEmail" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" id="registerInputEmail" required>
+                    </div>
+
                     <div class="mb-3">
                         <label for="registerInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="registerInputPassword1">
+                        <input type="password" name="password1" class="form-control" id="registerInputPassword1"
+                            required>
                     </div>
+
                     <div class="mb-3">
                         <label for="registerInputPassword2" class="form-label">Re-write Password</label>
-                        <input type="password" class="form-control" id="registerInputPassword2">
+                        <input type="password" name="password2" class="form-control" id="registerInputPassword2"
+                            required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                    <button type="submit btn-danger" class="btn btn-primary">Register</button>
                 </form>
             </div>
         </div>

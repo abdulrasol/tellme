@@ -1,0 +1,16 @@
+users {
+    id: pk int,
+    email: unicode varchar,
+    username: unicode varchar,
+    password: hash,
+    picture: file,
+    bio: text,
+}
+
+posts {
+    id:pk int,
+    user: forginkey[users.id],
+    title: varchar,
+    date: datetime,
+    body: text,
+}

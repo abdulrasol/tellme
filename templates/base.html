@@ -18,7 +18,7 @@
   <!-- Navbar -->
   <nav class="navbar fixed-top navbar-expand-md navbar-dark " style="background-color: #11698e;">
     <div class=" container-fluid">
-      <a class="navbar-brand" href="#">TellMe!</a>
+      <a class="navbar-brand" href="/">TellMe!</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
           {% if session.user %}
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Mine</a>
+            <a class="nav-link" href="/profile">{{session['user']}}</a>
           </li>
 
           <li class="nav-item">
@@ -89,14 +89,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form method="POST">
             <div class="mb-3">
               <label for="post-title" class="form-label">Title</label>
-              <input id="post-title" type="text" class="form-control" name="title" required />
+              <input name="title" id="post-title" type="text" class="form-control" name="title" required />
             </div>
             <div class="mb-3">
               <label for="post-body" class="form-label">Body</label>
-              <textarea class="form-control" id="post-body" rows="3"></textarea>
+              <textarea name="body" class="form-control" id="post-body" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Post</button>
           </form>
@@ -107,7 +107,6 @@
   </div>
 
   {% if not session.user %}
-
   <!-- Register/Login Modals -->
   <div class="modal fade" id="register" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -130,15 +129,15 @@
 
             <div class="tab-content" id="nav-tabContent">
               <div class="tab-pane fade show active" id="nav-Login" role="tabpanel" aria-labelledby="nav-Login-tab">
-                <form class="mt-3">
+                <form class="mt-3" action="/login" method="POST">
                   <div class="mb-3">
                     <label for="loginInputEmail" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="loginInputEmail">
+                    <input type="text" name="username" class="form-control" id="loginInputEmail">
                   </div>
 
                   <div class="mb-3">
                     <label for="loginInputPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="loginInputPassword">
+                    <input type="password" name="password" class="form-control" id="loginInputPassword">
                   </div>
 
                   <button type="submit btn-danger" class="btn btn-primary">Login</button>
@@ -146,20 +145,25 @@
               </div>
 
               <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
-                <form class="mt-3">
+                <form class="mt-3" method="POST" action="/register">
                   <div class="mb-3">
                     <label for="registerInputEmail" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="registerInputEmail">
+                    <input type="text" name="username" class="form-control" id="registerInputEmail" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="registerInputEmail" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" id="registerInputEmail" required>
                   </div>
 
                   <div class="mb-3">
                     <label for="registerInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="registerInputPassword1">
+                    <input type="password" name="password1" class="form-control" id="registerInputPassword1" required>
                   </div>
 
                   <div class="mb-3">
                     <label for="registerInputPassword2" class="form-label">Re-write Password</label>
-                    <input type="password" class="form-control" id="registerInputPassword2">
+                    <input type="password" name="password2" class="form-control" id="registerInputPassword2" required>
                   </div>
 
                   <button type="submit btn-danger" class="btn btn-primary">Register</button>
@@ -185,25 +189,43 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form action="/profile" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
-              <label for="post-title" class="form-label">Username</label>
-              <input id="post-title" type="text" class="form-control" name="username" required />
+              <div class="row">
+                <div class="col">
+                  <input type="text" name="username" class="form-control" placeholder="Username" aria-label="username">
+                </div>
+                <div class="col">
+                  <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Name">
+                </div>
+              </div>
             </div>
-
             <div class="mb-3">
-              <label for="post-title" class="form-label">Password</label>
-              <input id="post-title" type="password" class="form-control" name="password" required />
+              <div class="row">
+                <div class="col">
+                  <input type="text" name="name" class="form-control" placeholder="Name" aria-label="name">
+                </div>
+                <div class="col">
+                  <input type="text" name="short" class="form-control" placeholder="Short" aria-label="Short">
+                </div>
+              </div>
             </div>
-
+            <div class="row">
+              <div class="col mb-3">
+                <input type="password" name="password1" class="form-control" placeholder="Old password"
+                  aria-label="password"> </div>
+              <div class="col ">
+                <input type="password" name="password2" class="form-control" placeholder="New Password"
+                  aria-label="Password">
+              </div>
+            </div>
             <div class="mb-3">
               <label for="post-body" class="form-label">Bio</label>
               <textarea class="form-control" id="post-body" rows="3" name="bio"></textarea>
             </div>
-
             <div class="mb-3">
               <label for="formFile" class="form-label">Profile Image</label>
-              <input class="form-control" type="file" id="formFile">
+              <input class="form-control" name="picture" type="file" id="formFile">
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
           </form>
